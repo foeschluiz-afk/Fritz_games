@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo da Forca</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <h1>Jogo da Forca</h1>
+
+    <label for="modo">Selecione o modo:</label>
+    <select id="modo" onchange="alterarModo()">
+      <option value="natureza">Natureza</option>
+      <option value="tecnologia">Tecnologia</option>
+      <option value="animais">Animais</option>
+      <option value="mitologia">Mitologia</option>
+    </select>
+
+    <div id="forca"></div>
+    <p id="dica"></p>
+    <div id="palavra"></div>
+    <p id="letrasErradas"></p>
+    <input type="text" id="letraInput" maxlength="1" placeholder="Digite uma letra">
+    <button onclick="jogar()">Tentar</button>
+    <button onclick="reiniciar()">Jogar Novamente</button>
+    <p id="mensagem"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

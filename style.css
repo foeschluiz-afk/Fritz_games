@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#container {
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 450px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+#forca {
+  font-family: monospace;
+  white-space: pre;
+  margin: 20px 0;
+}
+
+#dica {
+  font-style: italic;
+  margin: 10px 0;
+}
+
+#palavra {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+#palavra span {
+  background-color: #fff;
+  color: #000;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 4px;
+  font-size: 24px;
+  min-width: 30px;
+  text-align: center;
+}
+
+#letrasErradas {
+  color: #ff4d4d;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#mensagem {
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+/* Temas */
+.natureza {
+  background-color: #228B22;
+  color: #fff;
+}
+
+.tecnologia {
+  background-color: #1E1E1E;
+  color: #0ff;
+}
+
+.animais {
+  background-color: #8B4513;
+  color: #fff;
+}
+
+.mitologia {
+  background-color: #4B0082;
+  color: #ffd700;
+}
