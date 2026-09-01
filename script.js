@@ -170,6 +170,12 @@ window.onload = () => {
   listaAtual = modos["natureza"];
   document.getElementById("container").className = "natureza";
   iniciarJogo();
-};
 
+  // Enter envia a letra
+  document.getElementById("letraInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      jogar();
+    }
+  });
+};
 //
