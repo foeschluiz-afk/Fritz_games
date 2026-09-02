@@ -86,6 +86,11 @@ const desenhos = [
 =======`
 ];
 
+// Função para remover acentos
+function normalizar(texto) {
+  return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 function iniciarJogo() {
   const sorteio = listaAtual[Math.floor(Math.random() * listaAtual.length)];
   palavraSecreta = sorteio.palavra;
@@ -113,7 +118,7 @@ function atualizarPalavra() {
 }
 
 function jogar() {
-  const letra = document.getElementById("letraInput").value.toLowerCase();
+  let letra = document.getElementById("letraInput").value.toLowerCase();
   document.getElementById("letraInput").value = "";
 
   if (!letra || letra.length !== 1) {
@@ -121,15 +126,21 @@ function jogar() {
     return;
   }
 
+  // Normaliza a letra digitada
+  letra = normalizar(letra);
+
+  // Normaliza a palavra secreta para comparação
+  const palavraNormalizada = normalizar(palavraSecreta);
+
   if (palavraExibida.includes(letra) || letrasErradas.includes(letra)) {
     alert("Você já tentou essa letra!");
     return;
   }
 
-  if (palavraSecreta.includes(letra)) {
-    for (let i = 0; i < palavraSecreta.length; i++) {
-      if (palavraSecreta[i] === letra) {
-        palavraExibida[i] = letra;
+  if (palavraNormalizada.includes(letra)) {
+    for (let i = 0; i < palavraNormalizada.length; i++) {
+      if (palavraNormalizada[i] === letra) {
+        palavraExibida[i] = palavraSecreta[i]; // mantém acento visível
       }
     }
   } else {
@@ -177,5 +188,11 @@ window.onload = () => {
       jogar();
     }
   });
+
+  // Escape reinicia o jogo
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      reiniciar();
+    }
+  });
 };
-//
